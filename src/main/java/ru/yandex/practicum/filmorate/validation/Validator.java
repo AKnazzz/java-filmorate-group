@@ -1,13 +1,9 @@
 package ru.yandex.practicum.filmorate.validation;
 
 import lombok.extern.slf4j.Slf4j;
-import ru.yandex.practicum.filmorate.dto.UserDTO;
-import ru.yandex.practicum.filmorate.exception.EntityNotFoundException;
 import ru.yandex.practicum.filmorate.exception.ValidationException;
-import ru.yandex.practicum.filmorate.model.Director;
-import ru.yandex.practicum.filmorate.model.Film;
-import ru.yandex.practicum.filmorate.model.Review;
-import ru.yandex.practicum.filmorate.model.User;
+import ru.yandex.practicum.filmorate.film.model.Film;
+import ru.yandex.practicum.filmorate.user.model.User;
 
 import java.time.LocalDate;
 
@@ -67,15 +63,6 @@ public class Validator {
         }
         log.debug("User validation is successful");
         return true;
-    }
-
-    public static void validateForGrade(Review review, UserDTO user) {
-        if (review == null) {
-            throw new EntityNotFoundException("Отзыв не найден");
-        }
-        if (user == null) {
-            throw new EntityNotFoundException("Пользователь не найден");
-        }
     }
 
 }

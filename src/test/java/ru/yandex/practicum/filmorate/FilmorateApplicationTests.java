@@ -8,20 +8,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.jdbc.Sql;
-import ru.yandex.practicum.filmorate.mapper.ReviewMapper;
-import ru.yandex.practicum.filmorate.model.*;
+import ru.yandex.practicum.filmorate.director.model.Director;
+import ru.yandex.practicum.filmorate.director.storage.DirectorDBStorage;
+import ru.yandex.practicum.filmorate.feed.model.Event;
+import ru.yandex.practicum.filmorate.feed.storage.FeedDBStorage;
+import ru.yandex.practicum.filmorate.film.service.FilmService;
+import ru.yandex.practicum.filmorate.film.storage.FilmDBStorage;
+import ru.yandex.practicum.filmorate.genre.storage.GenreDBStorage;
+import ru.yandex.practicum.filmorate.like.storage.LikeDBStorage;
+import ru.yandex.practicum.filmorate.mpa.storage.MpaDBStorage;
+import ru.yandex.practicum.filmorate.recommendation.RecommendationService;
+import ru.yandex.practicum.filmorate.review.mapper.ReviewMapper;
 import ru.yandex.practicum.filmorate.exception.EntityNotFoundException;
-import ru.yandex.practicum.filmorate.model.enums.EventType;
-import ru.yandex.practicum.filmorate.model.enums.Operation;
-import ru.yandex.practicum.filmorate.service.FilmService;
-import ru.yandex.practicum.filmorate.service.ReviewService;
-import ru.yandex.practicum.filmorate.service.UserService;
-import ru.yandex.practicum.filmorate.model.Film;
-import ru.yandex.practicum.filmorate.model.Genre;
-import ru.yandex.practicum.filmorate.model.Mpa;
-import ru.yandex.practicum.filmorate.model.User;
-import ru.yandex.practicum.filmorate.service.UserServiceImpl;
-import ru.yandex.practicum.filmorate.storage.*;
+import ru.yandex.practicum.filmorate.feed.model.enums.EventType;
+import ru.yandex.practicum.filmorate.feed.model.enums.Operation;
+import ru.yandex.practicum.filmorate.review.model.Review;
+import ru.yandex.practicum.filmorate.review.service.ReviewService;
+import ru.yandex.practicum.filmorate.review.storage.ReviewStorage;
+import ru.yandex.practicum.filmorate.film.model.Film;
+import ru.yandex.practicum.filmorate.genre.model.Genre;
+import ru.yandex.practicum.filmorate.mpa.model.Mpa;
+import ru.yandex.practicum.filmorate.user.model.User;
+import ru.yandex.practicum.filmorate.user.service.UserService;
+import ru.yandex.practicum.filmorate.user.storage.UserDBStorage;
 
 import java.time.LocalDate;
 import java.util.*;
@@ -38,11 +47,11 @@ class FilmorateApplicationTests {
     private final GenreDBStorage genreDBStorage;
     private final LikeDBStorage likeDBStorage;
     private final MpaDBStorage mpaDBStorage;
-    private final UserServiceImpl userServiceImpl;
     private final DirectorDBStorage directorDBStorage;
     private final FeedDBStorage feedDBStorage;
     private final UserService userService;
     private final FilmService filmService;
+    private final RecommendationService recommendationService;
 
 
     private final ReviewStorage reviewStorage;
@@ -570,9 +579,10 @@ class FilmorateApplicationTests {
         Assertions.assertArrayEquals(expected, userDBStorage.getAllFriendByUserId(1L).toArray(), "Ожидалось получение " +
                 "всех friend у конкретного User");
     }
+
     @DisplayName("Тест для рекомендаций")
     @Test
-    public void findRecomendationTest(){
+    public void findRecomendationTest() {
         Film film = Film.builder()
                 .id(1L)
                 .name("Film1")
@@ -631,9 +641,9 @@ class FilmorateApplicationTests {
         userDBStorage.saveUser(user2);
         likeDBStorage.addLike(1L, 2L);
         likeDBStorage.addLike(2L, 2L);
-        List<Film> saveRecomendation =userServiceImpl.findRecommendation(2L);
+        List<Film> saveRecomendation = recommendationService.findRecommendation(2L);
         Assertions.assertEquals(1, saveRecomendation.size());
-        Assertions.assertEquals(3L, saveRecomendation.get(0));
+        Assertions.assertEquals(3L, saveRecomendation.get(0).getId());
     }
 
     @DisplayName("Тест создания и получения ревью по ID")
@@ -964,7 +974,7 @@ class FilmorateApplicationTests {
         long filmId = filmDBStorage.saveFilm(film).getId();
         long userId = userDBStorage.saveUser(user).getId();
         reviewService.addReview(ReviewMapper.reviewToDTO(review));
-        review = reviewStorage.getReviewById(1l);
+        review = reviewStorage.getReviewById(1L);
         review.setContent("Фильм не очень");
         review.setIsPositive(false);
         reviewService.updateReview(ReviewMapper.reviewToDTO(review));
