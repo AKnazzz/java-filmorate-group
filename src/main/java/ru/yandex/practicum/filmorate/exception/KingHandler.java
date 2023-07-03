@@ -25,7 +25,7 @@ public class KingHandler {
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
-    public ResponseEntity<?> illegalArgumentException(final IllegalArgumentException e){
+    public ResponseEntity<?> illegalArgumentException(final IllegalArgumentException e) {
         return new ResponseEntity<>(new ErrorResponse(String.valueOf(e.getClass()),e.getMessage()), HttpStatus.NOT_FOUND);
     }
 
