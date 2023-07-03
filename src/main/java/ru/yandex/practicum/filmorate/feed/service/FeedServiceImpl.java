@@ -2,15 +2,13 @@ package ru.yandex.practicum.filmorate.feed.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
-import ru.yandex.practicum.filmorate.feed.model.EventDTO;
 import ru.yandex.practicum.filmorate.feed.mapper.EventMapper;
 import ru.yandex.practicum.filmorate.feed.model.Event;
+import ru.yandex.practicum.filmorate.feed.model.EventDTO;
 import ru.yandex.practicum.filmorate.feed.model.enums.EventType;
 import ru.yandex.practicum.filmorate.feed.model.enums.Operation;
 import ru.yandex.practicum.filmorate.feed.storage.FeedStorage;
-import ru.yandex.practicum.filmorate.user.service.UserService;
 import ru.yandex.practicum.filmorate.user.storage.UserStorage;
 
 import java.util.List;

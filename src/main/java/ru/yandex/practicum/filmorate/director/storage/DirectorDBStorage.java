@@ -5,8 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Component;
-import ru.yandex.practicum.filmorate.exception.EntityNotFoundException;
 import ru.yandex.practicum.filmorate.director.model.Director;
+import ru.yandex.practicum.filmorate.exception.EntityNotFoundException;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

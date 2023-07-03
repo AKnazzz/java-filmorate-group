@@ -1,7 +1,7 @@
 package ru.yandex.practicum.filmorate.feed.mapper;
 
-import ru.yandex.practicum.filmorate.feed.model.EventDTO;
 import ru.yandex.practicum.filmorate.feed.model.Event;
+import ru.yandex.practicum.filmorate.feed.model.EventDTO;
 
 import java.util.Collection;
 import java.util.List;

@@ -1,7 +1,7 @@
 package ru.yandex.practicum.filmorate.mpa.mapper;
 
-import ru.yandex.practicum.filmorate.mpa.model.MpaDTO;
 import ru.yandex.practicum.filmorate.mpa.model.Mpa;
+import ru.yandex.practicum.filmorate.mpa.model.MpaDTO;
 
 import java.util.Collection;
 import java.util.List;

@@ -3,13 +3,13 @@ package ru.yandex.practicum.filmorate.user.service;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.yandex.practicum.filmorate.feed.service.FeedService;
-import ru.yandex.practicum.filmorate.user.model.UserDTO;
 import ru.yandex.practicum.filmorate.exception.ValidationException;
-import ru.yandex.practicum.filmorate.user.mapper.UserMapper;
-import ru.yandex.practicum.filmorate.user.model.User;
 import ru.yandex.practicum.filmorate.feed.model.enums.EventType;
 import ru.yandex.practicum.filmorate.feed.model.enums.Operation;
+import ru.yandex.practicum.filmorate.feed.service.FeedService;
+import ru.yandex.practicum.filmorate.user.mapper.UserMapper;
+import ru.yandex.practicum.filmorate.user.model.User;
+import ru.yandex.practicum.filmorate.user.model.UserDTO;
 import ru.yandex.practicum.filmorate.user.storage.UserStorage;
 import ru.yandex.practicum.filmorate.validation.Validator;
 

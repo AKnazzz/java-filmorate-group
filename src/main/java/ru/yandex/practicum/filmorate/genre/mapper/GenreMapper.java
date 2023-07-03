@@ -1,7 +1,7 @@
 package ru.yandex.practicum.filmorate.genre.mapper;
 
-import ru.yandex.practicum.filmorate.genre.model.GenreDTO;
 import ru.yandex.practicum.filmorate.genre.model.Genre;
+import ru.yandex.practicum.filmorate.genre.model.GenreDTO;
 
 import java.util.Collection;
 import java.util.List;

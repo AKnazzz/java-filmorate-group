@@ -1,7 +1,7 @@
 package ru.yandex.practicum.filmorate.review.mapper;
 
-import ru.yandex.practicum.filmorate.review.model.ReviewDTO;
 import ru.yandex.practicum.filmorate.review.model.Review;
+import ru.yandex.practicum.filmorate.review.model.ReviewDTO;
 
 import java.util.Collection;
 import java.util.List;

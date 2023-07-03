@@ -1,7 +1,7 @@
 package ru.yandex.practicum.filmorate.user.mapper;
 
-import ru.yandex.practicum.filmorate.user.model.UserDTO;
 import ru.yandex.practicum.filmorate.user.model.User;
+import ru.yandex.practicum.filmorate.user.model.UserDTO;
 
 import java.util.Collection;
 import java.util.List;

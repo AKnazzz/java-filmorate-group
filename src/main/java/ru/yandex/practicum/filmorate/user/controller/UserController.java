@@ -6,10 +6,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.yandex.practicum.filmorate.feed.model.EventDTO;
-import ru.yandex.practicum.filmorate.user.model.UserDTO;
-import ru.yandex.practicum.filmorate.film.model.Film;
 import ru.yandex.practicum.filmorate.feed.service.FeedService;
+import ru.yandex.practicum.filmorate.film.model.Film;
 import ru.yandex.practicum.filmorate.recommendation.RecommendationService;
+import ru.yandex.practicum.filmorate.user.model.UserDTO;
 import ru.yandex.practicum.filmorate.user.service.UserService;
 
 import javax.validation.Valid;

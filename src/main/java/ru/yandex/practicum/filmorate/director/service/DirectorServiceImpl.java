@@ -3,9 +3,9 @@ package ru.yandex.practicum.filmorate.director.service;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.yandex.practicum.filmorate.director.model.DirectorDTO;
 import ru.yandex.practicum.filmorate.director.mapper.DirectorMapper;
 import ru.yandex.practicum.filmorate.director.model.Director;
+import ru.yandex.practicum.filmorate.director.model.DirectorDTO;
 import ru.yandex.practicum.filmorate.director.storage.DirectorStorage;
 
 import java.util.List;

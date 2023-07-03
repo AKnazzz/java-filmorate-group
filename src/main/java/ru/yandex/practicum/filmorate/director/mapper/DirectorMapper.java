@@ -1,7 +1,7 @@
 package ru.yandex.practicum.filmorate.director.mapper;
 
-import ru.yandex.practicum.filmorate.director.model.DirectorDTO;
 import ru.yandex.practicum.filmorate.director.model.Director;
+import ru.yandex.practicum.filmorate.director.model.DirectorDTO;
 
 import java.util.Collection;
 import java.util.List;
